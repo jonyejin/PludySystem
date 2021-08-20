@@ -13,7 +13,7 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
-	return "Pludy System"
+	return "<h1>Pludy System<h1>"
 
 @app.route('/jaehwan')
 def jaehwan():
@@ -42,6 +42,9 @@ class User(db.Model):
 	grade = db.Column(db.Integer(), nullable=False)
 	phonenumber = db.Column(db.String(100), unique=True)
 	pphonenumber = db.Column(db.String(100), unique=True, nullable=False)
+	checkin = db.Column(db.Boolean, nullable=False, default=False)
+	checkta = db.Column(db.Boolean, nullable=False, default=False)
+	checkdate = db.Column(db.Boolean, nullable=False)
 
 	def __repr__(self):
 		return f"<User('{self.id}', '{self.username}', '{self.schoolname}','{self.grade}','{self.phonenumber}')>"
